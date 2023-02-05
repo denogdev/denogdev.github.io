@@ -19,14 +19,14 @@ $BinDir = if ($DenoInstall) {
   "${Home}\.deno\bin"
 }
 
-$DenoZip = "$BinDir\denox.zip"
-$DenoExe = "$BinDir\denox.exe"
+$DenoZip = "$BinDir\denog.zip"
+$DenoExe = "$BinDir\denog.exe"
 $Target = 'x86_64-pc-windows-msvc'
 
 $DownloadUrl = if (!$Version) {
-  "https://github.com/denoxdev/denox/releases/latest/download/denox-${Target}.zip"
+  "https://github.com/denogdev/denog/releases/latest/download/denog-${Target}.zip"
 } else {
-  "https://github.com/denoxdev/denox/releases/download/${Version}/denox-${Target}.zip"
+  "https://github.com/denogdev/denog/releases/download/${Version}/denog-${Target}.zip"
 }
 
 if (!(Test-Path $BinDir)) {
@@ -46,5 +46,5 @@ if (!(";${Path};".ToLower() -like "*;${BinDir};*".ToLower())) {
   $Env:Path += ";${BinDir}"
 }
 
-Write-Output "Denox was installed successfully to ${DenoExe}"
-Write-Output "Run 'denox --help' to get started"
+Write-Output "Denog was installed successfully to ${DenoExe}"
+Write-Output "Run 'denog --help' to get started"

@@ -6,7 +6,7 @@
 set -e
 
 if ! command -v unzip >/dev/null; then
-	echo "Error: unzip is required to install Denox (see: https://github.com/denoland/deno_install#unzip-is-required)." 1>&2
+	echo "Error: unzip is required to install Denog (see: https://github.com/denoland/deno_install#unzip-is-required)." 1>&2
 	exit 1
 fi
 
@@ -17,7 +17,7 @@ else
 	"Darwin x86_64") target="x86_64-apple-darwin" ;;
 	"Darwin arm64") target="aarch64-apple-darwin" ;;
 	"Linux aarch64")
-		echo "Error: Official Denox builds for Linux aarch64 are not available." 1>&2
+		echo "Error: Official Denog builds for Linux aarch64 are not available." 1>&2
 		exit 1
 		;;
 	*) target="x86_64-unknown-linux-gnu" ;;
@@ -25,14 +25,14 @@ else
 fi
 
 if [ $# -eq 0 ]; then
-	deno_uri="https://github.com/denoxdev/denox/releases/latest/download/denox-${target}.zip"
+	deno_uri="https://github.com/denogdev/denog/releases/latest/download/denog-${target}.zip"
 else
-	deno_uri="https://github.com/denoxdev/denox/releases/download/${1}/denox-${target}.zip"
+	deno_uri="https://github.com/denogdev/denog/releases/download/${1}/denog-${target}.zip"
 fi
 
 deno_install="${DENO_INSTALL:-$HOME/.deno}"
 bin_dir="$deno_install/bin"
-exe="$bin_dir/denox"
+exe="$bin_dir/denog"
 
 if [ ! -d "$bin_dir" ]; then
 	mkdir -p "$bin_dir"
@@ -43,9 +43,9 @@ unzip -d "$bin_dir" -o "$exe.zip"
 chmod +x "$exe"
 rm "$exe.zip"
 
-echo "Denox was installed successfully to $exe"
-if command -v denox >/dev/null; then
-	echo "Run 'denox --help' to get started"
+echo "Denog was installed successfully to $exe"
+if command -v denog >/dev/null; then
+	echo "Run 'denog --help' to get started"
 else
 	case $SHELL in
 	/bin/zsh) shell_profile=".zshrc" ;;
